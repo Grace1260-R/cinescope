@@ -1,0 +1,528 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f4f2f8;
+  background: #0c0b12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(99, 55, 160, 0.16), transparent 55%),
+    #0c0b12;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #b79aff;
+  outline-offset: 3px;
+}
+
+.navbar {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #24212e;
+  background: rgba(12, 11, 18, 0.92);
+}
+
+.brand {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 23px;
+}
+
+.brand-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #0c0b12;
+  background: #c4a7ff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-link {
+  border: 0;
+  color: #aaa5b8;
+  background: transparent;
+  padding: 11px 15px;
+  border-radius: 9px;
+}
+
+.nav-link.active {
+  color: #fff;
+  background: #282333;
+}
+
+.count {
+  margin-left: 5px;
+  color: #c4a7ff;
+}
+
+.main-content {
+  width: min(1120px, 86%);
+  margin: auto;
+}
+
+.hero {
+  padding: 75px 0 64px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #b79aff;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(36px, 5.5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin: 22px 0;
+}
+
+.hero h1 span {
+  color: #b99aff;
+}
+
+.hero-description {
+  color: #a6a1b2;
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.catalog {
+  padding-bottom: 80px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 29px;
+  margin: 0;
+}
+
+.result-count {
+  color: #a6a1b2;
+  font-size: 13px;
+}
+
+.search-box {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border: 1px solid #302b3b;
+  border-radius: 12px;
+  background: #15131d;
+  color: #b99aff;
+}
+
+.search-box > span {
+  font-size: 26px;
+}
+
+.search-box input {
+  width: 100%;
+  color: #fff;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.search-box input::placeholder {
+  color: #797486;
+}
+
+.search-box button {
+  border: 0;
+  color: #aaa5b8;
+  background: transparent;
+  font-size: 23px;
+}
+
+.genre-filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: 22px 0 28px;
+}
+
+.genre-chip {
+  color: #aaa5b8;
+  border: 1px solid #302b3b;
+  background: #15131d;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.genre-chip:hover,
+.genre-chip.selected {
+  color: #0c0b12;
+  background: #c4a7ff;
+  border-color: #c4a7ff;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 18px;
+}
+
+.movie-card {
+  overflow: hidden;
+  border: 1px solid #292532;
+  border-radius: 14px;
+  background: #15131d;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  border-color: #67518c;
+}
+
+.poster-container {
+  height: 275px;
+  position: relative;
+  overflow: hidden;
+  background: #24202e;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.04);
+}
+
+.heart-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 37px;
+  height: 37px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(12, 11, 18, 0.8);
+  color: white;
+  font-size: 23px;
+}
+
+.heart-button.favorited {
+  color: #ff81a8;
+}
+
+.rating {
+  position: absolute;
+  left: 11px;
+  bottom: 11px;
+  border-radius: 6px;
+  background: rgba(12, 11, 18, 0.88);
+  color: #ffd36b;
+  padding: 6px 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.movie-info {
+  padding: 16px 14px 15px;
+}
+
+.movie-meta,
+.movie-duration {
+  color: #a6a1b2;
+  font-size: 12px;
+}
+
+.movie-meta {
+  margin: 0 0 8px;
+}
+
+.movie-meta span {
+  color: #b99aff;
+  margin: 0 4px;
+}
+
+.movie-info h3 {
+  margin: 0;
+  min-height: 44px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.movie-duration {
+  margin: 8px 0 15px;
+}
+
+.details-button {
+  width: 100%;
+  border: 1px solid #493a63;
+  border-radius: 8px;
+  color: #d9c9ff;
+  background: #272033;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.details-button:hover {
+  color: #0c0b12;
+  background: #c4a7ff;
+}
+
+.empty-state {
+  padding: 60px 15px;
+  text-align: center;
+  border: 1px dashed #393245;
+  border-radius: 14px;
+  color: #a6a1b2;
+}
+
+.empty-state h3 {
+  color: #fff;
+}
+
+.footer {
+  padding: 25px 7%;
+  border-top: 1px solid #24212e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #898396;
+  font-size: 12px;
+}
+
+.footer p {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.footer .brand-icon {
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+  border-radius: 7px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(7px);
+}
+
+.movie-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 25px;
+  width: min(650px, 100%);
+  padding: 25px;
+  border: 1px solid #393245;
+  border-radius: 16px;
+  background: #17141f;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 28px;
+}
+
+.modal-poster {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.modal-content h2 {
+  margin: 10px 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.modal-content > p:not(.eyebrow) {
+  color: #b6b0c3;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.modal-meta {
+  font-size: 12px !important;
+}
+
+.modal-rating {
+  color: #ffd36b !important;
+  font-weight: 700;
+}
+
+@media (max-width: 950px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .poster-container {
+    height: 260px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    height: 68px;
+    padding: 0 5%;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .nav-links {
+    gap: 3px;
+  }
+
+  .nav-link {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .main-content {
+    width: 90%;
+  }
+
+  .hero {
+    padding: 55px 0 45px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .section-heading h2 {
+    font-size: 23px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 12px;
+  }
+
+  .poster-container {
+    height: 225px;
+  }
+
+  .movie-info {
+    padding: 12px 10px;
+  }
+
+  .movie-info h3 {
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 20px 5%;
+    gap: 12px;
+  }
+
+  .movie-modal {
+    grid-template-columns: 100px 1fr;
+    gap: 15px;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-container {
+    height: 320px;
+  }
+
+  .movie-modal {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-poster {
+    width: 120px;
+    height: 170px;
+  }
+}
